@@ -1,0 +1,7 @@
+baseURL = "https://aminulpalash.github.io/"
+languageCode = "en-us"
+title = "Md Aminul Haque Palash"
+theme = "dimension"
+
+[markup.goldmark.renderer]
+unsafe= true

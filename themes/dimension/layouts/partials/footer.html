@@ -1,0 +1,33 @@
+
+    <!-- Scripts -->
+    <script src={{ "assets/js/jquery.min.js" | absURL }}></script>
+    <script src={{ "assets/js/browser.min.js" | absURL }}></script>
+    <script src={{ "assets/js/breakpoints.min.js" | absURL }}></script>
+    <script src={{ "assets/js/util.js" | absURL }}></script>
+    <script src={{ "assets/js/main.js" | absURL }}></script>
+    <script src={{ "assets/js/custom.js" | absURL }}></script>
+    <script>
+        (function () {
+            function showArticle() {
+                var id = window.location.hash.slice(1);
+                var article = id && document.getElementById(id);
+                if (!article) return;
+                var main = document.getElementById('main');
+                var header = document.getElementById('header');
+                var footer = document.getElementById('footer');
+                main.style.display = 'flex';
+                header.style.display = 'none';
+                footer.style.display = 'none';
+                document.body.classList.add('is-article-visible');
+                document.querySelectorAll('#main article').forEach(function (item) {
+                    item.classList.toggle('active', item === article);
+                    item.style.display = item === article ? 'block' : 'none';
+                });
+            }
+
+            window.addEventListener('hashchange', showArticle);
+            window.addEventListener('load', showArticle);
+        }());
+    </script>
+
+</html>

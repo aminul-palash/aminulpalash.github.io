@@ -1,104 +1,54 @@
-# Md Aminul Haque Palash - Portfolio
+# Aminul Palash Portfolio
 
-🌐 **Personal Portfolio Website** | AI Engineer & Researcher
+Personal website for Md Aminul Haque Palash, built with Hugo and the HTML5 UP Dimension theme.
 
-## About
+## Requirements
 
-This is my personal portfolio website built with [Hugo](https://gohugo.io/) and the [Hugo Profile](https://github.com/gurusabarish/hugo-profile) theme. It showcases my work experience, projects, publications, and blog posts.
+- Hugo Extended 0.88.1 or later
+- Docker (optional, if Hugo is not installed)
 
-## 👨‍💻 About Me
+## Run Locally
 
-I am a **Senior AI Engineer** at BJIT Limited with 5+ years of experience in developing AI solutions using NLP and Machine Learning. Currently pursuing my Masters in Data Science at United International University.
-
-**Specializations:**
-- Machine Learning & Deep Learning
-- Natural Language Processing (NLP)
-- Large Language Models (LLMs)
-- Recommendation Systems
-- Multi-Agent Systems
-- Edge AI
-
-## 🔗 Links
-
-- **GitHub:** [github.com/aminul-palash](https://github.com/aminul-palash)
-- **LinkedIn:** [linkedin.com/in/aminulpalash](https://www.linkedin.com/in/aminulpalash)
-- **Google Scholar:** [Google Scholar Profile](https://scholar.google.com/citations?user=O4xX7e0AAAAJ&hl/)
-- **Email:** aminulpalash506@gmail.com
-
-## 🚀 Featured Projects
-
-1. **Multi-Agent Travel Assistant System** - Production-grade multi-agent system using LangGraph
-2. **Personalized Suggestion System** - 2+ year research-to-production recommendation system
-3. **AI Travel Diary App** - iOS app with 90% reduction in manual diary input
-4. **Edge AI Food Recommendation** - On-device system with 95% accuracy
-5. **Automatic Passport Photo Creator** - Computer vision solution
-
-## 📚 Publications
-
-- Bangla Image Caption Generation (Springer)
-- Fine-Grained Image Generation from Bangla Text (IEEE)
-- Incongruity Detection using GNN (Springer)
-- Guava Disease Detection using Deep Learning (Springer)
-- Brain Tumor Segmentation using U-Net (ICCIT)
-
-## 🛠️ Tech Stack
-
-**Languages:** Python, C++  
-**AI/ML:** TensorFlow, PyTorch, LangChain, LangGraph, OpenVINO, ONNX  
-**Frameworks:** FastAPI, Flask  
-**Cloud & Tools:** AWS, Docker, Kubernetes  
-**Databases:** PostgreSQL, SQLite, FAISS, Pinecone
-
-## 🏃 Running Locally
-
-### Prerequisites
-- [Hugo](https://gohugo.io/installation/) (v0.87.0 or higher)
-
-### Commands
+From the project root:
 
 ```bash
-# Clone the repository
-git clone https://github.com/aminul-palash/portfolio.git
-cd portfolio
-
-# Run development server
-hugo server -D -p 1313
-
-# Build for production
-hugo --minify
+hugo server
 ```
 
-The site will be available at `http://localhost:1313/`
+Open http://localhost:1313 in your browser.
 
-## 📁 Project Structure
+### Run with Docker
 
-```
-portfolio/
-├── content/
-│   ├── blogs/          # Blog posts
-│   └── publications.md # Publications page
-├── static/
-│   └── images/         # Images and assets
-├── themes/
-│   └── hugo-profile/   # Theme files
-├── hugo.yaml           # Main configuration
-└── README.md
+```bash
+docker run --rm -it \
+  -v "$PWD":/src \
+  -w /src \
+  -p 1313:1313 \
+  klakegg/hugo:0.88.1-ext-alpine \
+  server --bind 0.0.0.0
 ```
 
-## 🎨 Customization
+Open http://localhost:1313.
 
-Edit `hugo.yaml` to customize:
-- Personal information
-- Social links
-- Experience & Education
-- Projects
-- Skills
-- Theme colors
+## Project Structure
 
-## 📄 License
+- `content/` - Bio, experience, projects, publications, highlights, blog, interests, and contact content
+- `themes/dimension/` - Hugo theme, layout, CSS, and JavaScript
+- `static/` - Source assets such as the background image and CV
+- `config.toml` - Hugo configuration
+- `.github/workflows/hugo.yml` - CI workflow that builds and deploys the site
 
-This project uses the [Hugo Profile](https://github.com/gurusabarish/hugo-profile) theme (MIT License).
+## GitHub Pages Deployment
 
----
+Deployment is automatic via GitHub Actions (`.github/workflows/hugo.yml`): every push to `main` builds the site with Hugo and publishes it to GitHub Pages.
 
-Made with ❤️ by **Md Aminul Haque Palash**
+One-time setup:
+
+1. In GitHub, open **Settings > Pages**.
+2. Under **Build and deployment > Source**, select **GitHub Actions**.
+
+The site will be available at:
+
+```text
+https://aminulpalash.github.io/
+```

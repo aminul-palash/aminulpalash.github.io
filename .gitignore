@@ -1,22 +1,8 @@
-/config.yaml
-/content
-/static/images
-.vscode
-
-### Hugo ###
-# Generated files by hugo
 /public/
-/exampleSite/public/
+/docs/
 /resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
-
-# Executable may be added to repository
+.hugo_build.lock
 hugo.exe
 hugo.darwin
 hugo.linux
-
-# Temporary lock file while building
-.hugo_build.lock
-
-.prettierignore
+.vscode

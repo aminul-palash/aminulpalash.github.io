@@ -1,0 +1,96 @@
+{{ partial "header.html" . }}
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+                <header id="header">
+                    <!-- <div class="logo">
+                            <span class="icon">
+                                <img src="{{ .Params.logo }}">
+                            </span>
+                    </div> -->
+                    <nav>
+                        <ul>
+                            <li><a href="#bio">         Bio</a></li>
+                            <li><a href="#experience">  Experience</a></li>
+                            <li><a href="#publications">    Publications</a></li>
+                            <li><a href="#projects">    Projects</a></li>
+                            <li><a href="#highlights">      Highlights</a></li>
+                            <li><a href="#writing-insights">        Writing &amp; Insights</a></li>
+                            <li><a href="#personal-interests">        Interests</a></li>
+                            <li><a href="#contacts">        Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="content">
+                        <div class="inner">
+                            <h1>{{ .Title | default "Title" }}</h1>
+                            <p>
+                                {{ .Params.hero_line_1 }} <br/>
+                                {{ .Params.hero_line_2 }} <br/>
+                                {{ .Params.hero_line_3 }} <br/>
+                                {{ .Params.hero_line_4 }} <br/>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{.Params.mail_url}}">
+                            <span class="icon">
+                                <img src="{{ .Params.mail_icon }}">
+                            </span>
+                        </a>
+
+                        <a href="{{.Params.google_scholar_url}}">
+                            <span class="icon">
+                                <img src="{{ .Params.google_scholar_icon }}">
+                            </span>
+                            </a>
+        
+                            <a href="{{.Params.github_url}}">
+                                <span class="icon">
+                                    <img src="{{ .Params.github_icon }}">
+                                </span>
+                            </a>
+
+                            <a href="{{.Params.linkedin_url}}">
+                                <span class="icon">
+                                    <img src="{{ .Params.linkedin_icon }}">
+                                </span>
+                            </a>
+        
+                            <a href="{{.Params.cv_url}}">
+                                <span class="icon">
+                                    <img src="{{ .Params.cv_icon }}">
+                                </span>
+                            </a>
+                    </div>
+                </header>
+
+            <!-- Main -->
+                <div id="main">
+
+                    {{ range .Pages }}
+                        {{if .Title }}
+                            {{if .Content }}
+                                <article id="{{ cond (in (.Title|urlize) "%") (.Title | base64Encode) (.Title) | urlize }}">
+                                    <h2 class="major">{{ .Title }}</h2>
+                                    <!-- <span class="image main"><img src="{{ .Params.image }}" alt="" /></span> -->
+                                    {{ .Content }}
+                                </article>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+
+                </div>
+                {{ partial "design.html" .}}
+
+        </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+</body>
+
+{{ partial "footer.html" .}}
