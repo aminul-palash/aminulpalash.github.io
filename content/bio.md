@@ -1,5 +1,6 @@
 ---
 title: Bio
+image: "/images/1.png"
 ---
 
 I am **Md Aminul Haque Palash**, a Senior AI Engineer based in Dhaka, Bangladesh. I build production machine learning systems across recommendation, forecasting, conversational AI, edge inference, and multi-agent applications.

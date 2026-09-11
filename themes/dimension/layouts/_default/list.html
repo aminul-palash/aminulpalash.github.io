@@ -74,10 +74,25 @@
                     {{ range .Pages }}
                         {{if .Title }}
                             {{if .Content }}
-                                <article id="{{ cond (in (.Title|urlize) "%") (.Title | base64Encode) (.Title) | urlize }}">
+                                {{ $isBio := eq .Title "Bio" }}
+                                <article id="{{ cond (in (.Title|urlize) "%") (.Title | base64Encode) (.Title) | urlize }}"{{ if $isBio }} class="bio-article"{{ end }}>
                                     <h2 class="major">{{ .Title }}</h2>
-                                    <!-- <span class="image main"><img src="{{ .Params.image }}" alt="" /></span> -->
-                                    {{ .Content }}
+                                    {{ if $isBio }}
+                                        <div class="bio-grid">
+                                            <section class="bio-copy">
+                                                {{ .Content }}
+                                            </section>
+                                            {{ if .Params.image }}
+                                                <aside class="bio-photo-panel">
+                                                    <div class="bio-photo-frame">
+                                                        <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+                                                    </div>
+                                                </aside>
+                                            {{ end }}
+                                        </div>
+                                    {{ else }}
+                                        {{ .Content }}
+                                    {{ end }}
                                 </article>
                             {{ end }}
                         {{ end }}
